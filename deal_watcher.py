@@ -13,7 +13,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s %(levelname)s %(message)s',
     handlers=[
-        logging.FileHandler("deal_watcher.log"),
+        logging.FileHandler("/home/ec2-user/deal_watcher.log"),
         logging.StreamHandler()
     ]
 )
@@ -27,7 +27,7 @@ login_url = 'https://app.buyinggroup.ca/login'
 dashboard_url = 'https://app.buyinggroup.ca/'
 
 # File to store seen deals
-seen_deals_file = 'seen_deals.json'
+seen_deals_file = '/home/ec2-user/seen_deals.json'
 
 # Store the latest deals
 seen_deals = set()
