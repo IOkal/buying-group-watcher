@@ -24,7 +24,7 @@ sns_topic_arn = 'arn:aws:sns:us-west-2:885053922788:email-buying-group-new-deal'
 
 # URL of the login page and dashboard
 login_url = 'https://app.buyinggroup.ca/login'
-dashboard_url = 'https://app.buyinggroup.ca/dashboard'
+dashboard_url = 'https://app.buyinggroup.ca'
 
 # File to store seen deals
 seen_deals_file = 'seen_deals.json'
