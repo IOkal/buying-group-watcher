@@ -24,7 +24,7 @@ sns_topic_arn = 'arn:aws:sns:us-west-2:885053922788:email-buying-group-new-deal'
 
 # URL of the login page and dashboard
 login_url = 'https://app.buyinggroup.ca/login'
-dashboard_url = 'https://app.buyinggroup.ca'
+dashboard_url = 'https://app.buyinggroup.ca/'
 
 # File to store seen deals
 seen_deals_file = 'seen_deals.json'
@@ -78,18 +78,20 @@ def get_latest_deals(session):
     for deal_div in deal_divs:
         deal_title = deal_div.find('h3').get_text(strip=True)
         price = deal_div.find('p', class_='text-base font-medium text-gray-900').get_text(strip=True).replace('Price:', '')
-        deal_id = f"{deal_title}-{price}"
-        deals.append((deal_id, deal_title, price))
-        logging.info(f"Found deal: {deal_title} at {price}")
+        retailer = deal_div.find('p', class_='text-sm italic').get_text(strip=True).replace('From:', '')
+        url = deal_div.find('a', target='_blank')['href']
+        deal_id = f"{deal_title}-{price}-{retailer}"
+        deals.append((deal_id, deal_title, price, retailer, url))
+        logging.info(f"Found deal: {deal_title} at {price} from {retailer} with URL {url}")
     
     return deals
 
 def send_alert(deal):
-    deal_id, title, price = deal
-    message = f"New deal available: {title} at {price}"
+    deal_id, title, price, retailer, url = deal
+    message = f"New deal available: {title} at {price} from {retailer}\nURL: {url}"
     try:
         sns.publish(TopicArn=sns_topic_arn, Message=message, Subject='New Deal Alert')
-        logging.info(f"Alert sent successfully for deal: {title} at {price}")
+        logging.info(f"Alert sent successfully for deal: {title} at {price} from {retailer}")
     except NoCredentialsError:
         logging.error("Error: No AWS credentials found.")
     except PartialCredentialsError:
