@@ -13,10 +13,6 @@ sns_topic_arn = 'arn:aws:sns:us-west-2:885053922788:email-buying-group-new-deal'
 login_url = 'https://app.buyinggroup.ca/login'
 dashboard_url = 'https://app.buyinggroup.ca/'
 
-# Login credentials
-username = 'iyad_okal@yahoo.com'
-password = 'TJwCi68@e2yWdG@E'
-
 # Store the latest deals
 seen_deals = set()
 
