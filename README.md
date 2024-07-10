@@ -1,6 +1,6 @@
 # New Deals watcher
 
-Welcome to the Buying Group Deal Watcher Service! This nifty tool is a companion for staying updated with the latest deals, so you never miss out on a bargain. 💸 Here's a dive into what makes this code tick and how you can get it up and running on your AWS EC2 instance.
+Welcome to the Deal Watcher tool! This nifty tool is a companion for staying updated with the latest deals, so you never miss out on a bargain. 💸 Here's a dive into what makes this code tick and how you can get it up and running on your AWS EC2 instance.
 
 ## What This Code Does 🎯
 
