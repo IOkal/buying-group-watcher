@@ -20,7 +20,7 @@ logging.basicConfig(
 
 # AWS SNS setup
 sns = boto3.client('sns', region_name='us-west-2')
-sns_topic_arn = 'arn:aws:sns:us-west-2:885053922788:email-buying-group-new-deal'
+sns_topic_arn = ''
 
 # URL of the login page and dashboard
 login_url = 'https://app.buyinggroup.ca/login'
